@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Amita:wght@400;700&family=Charm:wght@400;700&family=Klee+One&display=swap');
+      
+body {
+    font-family: "Klee One";
+    font-style: normal;
+}
+
+.klee-one-bold {
+    font-family: "Klee One", cursive;
+    font-weight: 700;
+    font-style: normal;
+}
+.charm-bold {
+    font-family: "Charm", cursive !important;
+    font-weight: 700;
+    font-style: normal;
+}
+.amita-regular {
+    font-family: "Amita", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.amita-bold {
+    font-family: "Amita", serif;
+    font-weight: 700;
+    font-style: normal;
+}          
+
+.btn-special:hover {
+    background-color: rgba(8, 37, 90, 0.9) !important;
+    color: rgba(212, 221, 238, 0.9) !important;
+}
+.btn-special  {  
+    background-color: rgba(0, 185, 218, 0.84) !important; 
+}
+
+.background {
+    background-color: rgba(8, 37, 90, 0.9);
+}
+.background-soft/*, .background-title*/ {
+    background-color: rgba(0, 146, 102, 0.84);
+    color: white;
+}
+
+.background-title {
+    background-color: rgba(255, 255, 255, 0.84);
+    color: rgb(27, 27, 27) !important;
+    border-bottom: 4px solid rgba(0, 185, 218, 0.84) !important;
+}
+
+.background-soft:hover {
+    background-color: rgba(8, 37, 90, 0.9);
+    color: white;
+}
+
+.redTomato {
+    background-color: rgb(226, 1, 20);
+    color: white
+}
+
+.tomato:hover {
+    background-color: rgba(8, 37, 90, 0.9);
+    color: white;
+}
+
+.btn-background {
+    background-color: rgba(8, 37, 90, 0.9) !important;
+    border: 1px solid transparent;
+    color:#fff;
+}
+.btn-background:hover {
+    color: rgba(8, 37, 90, 0.9); 
+    background-color: #fff !important;          
+    border-color: rgba(8, 37, 90, 0.9) !important;
+}
+
+.custom-gap-30px {
+        margin-left: 30px; /* Or use margin-right for the left column */
+}
+
+.pagination .page-link {
+    background-color: rgba(8, 37, 90, 0.9);
+    color: white;
+    
+}
+
+.pagination .page-link:hover {
+    background-color: rgba(0, 185, 218, 0.84);
+    color: rgba(8, 37, 90, 0.9);
+    
+}
+
+
+.pagination .page-item.active  .page-link  {
+    
+    background-color: #fff; 
+    color: rgba(8, 37, 90, 0.9);
+}
+
+
+

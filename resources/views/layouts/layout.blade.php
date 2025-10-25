@@ -9,6 +9,7 @@
     <link href="{{ asset('css/style.css')}}" rel="stylesheet" />  
 </head>
 <body class="d-flex flex-column min-vh-100">
+    @php $locale = session()->get('locale') @endphp
     <header class="mb-5 jus background pl-5 pr-5">
         <nav class="navbar navbar-expand-lg ">
             <div class="container-fluid gx-5">
@@ -20,7 +21,7 @@
                     <a class="navbar-brand" href="/">
                         <img src="{{ asset('images/Logo-hibou-bg-transparent.png') }}" width="50" height="50" alt="Logo hibou">                    
                     </a>
-                    <h3 class="text-white text-nowrap fs-4">Les petits savants</h3>
+                    <h3 class="text-white text-nowrap fs-4">@lang('Les petits savants')</h3>
                 </div>                                
                 <div class="collapse navbar-collapse  w-100 d-flex justify-content-between px-3 align-items-center" id="navbarSupportedContent">
                 <ul class="navbar-nav gap-3 pl-5 mb-lg-0">
@@ -29,13 +30,13 @@
                       <path d="M8 6.982C9.664 5.309 13.825 8.236 8 12 2.175 8.236 6.336 5.309 8 6.982"/>
                       <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.707L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.646a.5.5 0 0 0 .708-.707L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/>
                     </svg>   
-                    <a class="nav-link active text-white fs-4" aria-current="page" href="{{route('etudiant.index')}}">Admin</a> 
+                    <a class="nav-link active text-white fs-4" aria-current="page" href="{{route('etudiant.index')}}">@lang('Admin')</a> 
                     
                                        
                     </li>
                     <li class="nav-item d-flex align-items-center">
                         <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" color="#fff"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
-                        <a class="nav-link active text-white fs-4" href="{{ route('user.index') }}">Utilisateurs</a>
+                        <a class="nav-link active text-white fs-4" href="{{ route('user.index') }}">@lang('Utilisateurs')</a>
                     </li>
                     
                     <li class="nav-item dropdown d-flex align-items-center">
@@ -44,17 +45,45 @@
                         <path d="M4.04 7.43a4 4 0 0 1 7.92 0 .5.5 0 1 1-.99.14 3 3 0 0 0-5.94 0 .5.5 0 1 1-.99-.14M4 9.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5zm1 .5v3h6v-3h-1v.5a.5.5 0 0 1-1 0V10z"/>
                         <path d="M6 2.341V2a2 2 0 1 1 4 0v.341c2.33.824 4 3.047 4 5.659v5.5a2.5 2.5 0 0 1-2.5 2.5h-7A2.5 2.5 0 0 1 2 13.5V8a6 6 0 0 1 4-5.659M7 2v.083a6 6 0 0 1 2 0V2a1 1 0 0 0-2 0m1 1a5 5 0 0 0-5 5v5.5A1.5 1.5 0 0 0 4.5 15h7a1.5 1.5 0 0 0 1.5-1.5V8a5 5 0 0 0-5-5"/>
                       </svg>
-                          Étudiants
+                          @lang('Étudiants')
                       </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item fs-5" href="{{ route('etudiant.create') }}">Ajoute un étudiant</a></li>
-                        <li><a class="dropdown-item fs-5" href="{{route('ville.index')}}">Liste des villes</a></li>
+                        <li><a class="dropdown-item fs-5" href="{{ route('etudiant.create') }}">@lang('Ajoute un étudiant')</a></li>
+                        <li><a class="dropdown-item fs-5" href="{{route('ville.index')}}">@('Liste des villes')</a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item fs-5" href="#">Archives</a></li>
+                        <li><a class="dropdown-item fs-5" href="#">@lang('Archives')</a></li>
                     </ul>
                     </li>        
                 </ul>
                 
+                </div>
+                <div class="collapse navbar-collapse" id="navbarsExample03">
+                    <ul class="navbar-nav me-auto mb-2 mb-sm-0">
+                        
+                        @auth
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('user.index')}}">@lang('Users')</a>
+                        </li>
+                        @endauth
+                        
+                    </ul>
+                    <ul class="navbar-nav  mb-2 mb-sm-0">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle fs-5 text-white" href="#" data-bs-toggle="dropdown"
+                                aria-expanded="false">@lang('Language') {{ $locale === '' ? "(en)" : "($locale)"}}</a>
+                            <ul class="dropdown-menu"> 
+                                <li><a class="dropdown-item nav-link fs-5 " href="{{route('lang', 'en')}}">@lang('English')</a></li>
+                                <li><a class="dropdown-item nav-link fs-5 " href="{{route('lang', 'fr')}}">@lang('French')</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            @guest
+                            <a class="nav-link fs-5 text-white" href="{{route('login')}}">@lang('Login')</a>
+                            @else
+                            <a class="nav-link fs-5 text-white" href="{{route('logout')}}">@lang('Logout')</a>
+                            @endguest
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>
@@ -68,12 +97,18 @@
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endif
+
+         @auth
+            <p>Welcome, {{ Auth::user()->name }}</p>
+        @else
+            <p>Please log in to continue.</p>
+        @endauth
         @yield('content')
     </div>
     </main>
     <footer class="footer mt-auto py-3   background text-white">
         <div class="container text-center">
-            &copy; {{ date('Y') }} {{ config('app.name') }} | Tous droits réservés | Conception: Chantal Pépin
+            &copy; {{ date('Y') }} {{ config('app.name') }} | Conception: Chantal Pépin
         </div>
     </footer>
 </body>

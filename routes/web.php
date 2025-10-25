@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EtudiantController;
 use App\Http\Controllers\VilleController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\SetLocaleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,3 +42,15 @@ Route::get('/villes', [VilleController::class, 'index'])->name('ville.index');
 
 Route::get('/users', [UserController::class, 'index'])->name('user.index');
 Route::get('/user/{user}', [UserController::class, 'show'])->name('user.show');
+Route::get('/registration', [UserController::class, 'create'])->name('user.create');
+Route::post('/registration', [UserController::class, 'store'])->name('user.store');
+
+// Route pour la connexion et l'authentification
+
+Route::get('/login', [AuthController::class, 'create'])->name('login');
+Route::post('/login', [AuthController::class, 'store']);
+Route::get('/logout', [AuthController::class, 'destroy'])->name('logout');
+
+// Route pour les langues : langue locale
+
+Route::get('/lang/{locale}', [SetLocaleController::class, 'index'])->name('lang');

@@ -20,7 +20,13 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
+            //$table->unsignedBigInteger('etudiant_id');
             $table->timestamps();
+
+            $table->foreignId('etudiant_id')
+              ->nullable()
+              ->constrained('etudiants')
+              ->onDelete('cascade'); // supprime le user si l’étudiant est supprimé
         });
     }
 

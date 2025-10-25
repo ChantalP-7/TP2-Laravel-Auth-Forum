@@ -66,6 +66,15 @@
                             </div>
                         @endif
                         <div class="mb-3">
+                            <label for="password" class="form-label"><strong>Mot de passe</strong></label>
+                            <input type="password" class="form-control" id="password" name="password" value="password">
+                        </div>
+                        @if ($errors->has('password'))
+                            <div class="text-danger mb-2">
+                                {{$errors->first('password')}}
+                            </div>
+                        @endif
+                        <div class="mb-3">
                             <label for="ville_id" class="form-select-label mb-2"><strong>Villes</strong></label>
                             <select name="ville_id" id="ville_id" class="form-select">
                                 <option value="">Selectionne une ville</option>

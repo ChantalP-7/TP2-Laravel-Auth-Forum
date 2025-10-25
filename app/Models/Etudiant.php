@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Hash;
 
 class Etudiant extends Model
 {
@@ -15,7 +16,7 @@ class Etudiant extends Model
         'adresse',
         'telephone',
         'dateNaissance',
-        'courriel',
+        'courriel',        
         'ville_id'
     ];
 
@@ -34,6 +35,10 @@ class Etudiant extends Model
 
     public static function createWithUser(array $data)
     {
+
+        $password = $data['password'];
+        unset($data['password']);
+
         // Crée d'abord l'étudiant
         $etudiant = self::create($data);
 
@@ -41,7 +46,8 @@ class Etudiant extends Model
         $etudiant->user()->create([
             'name' => $etudiant->nom,   // Nom de l'étudiant pour le user
             'email' => $etudiant->courriel,     // Utilisation du courriel de l'étudiant
-            'password' => bcrypt('password'),    // Mot de passe par défaut
+            'password' => Hash::make($password)  // Mot de passe crypté
+            //'password' => bcrypt('password'),    // Mot de passe par défaut
         ]);
 
         return $etudiant;

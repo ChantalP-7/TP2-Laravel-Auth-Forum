@@ -19,10 +19,9 @@ return new class extends Migration
             $table->string('adresse');
             $table->string('telephone');
             $table->date('dateNaissance');
-            $table->string('courriel')->unique();
-            $table->unsignedBigInteger('ville_id');
+            $table->string('courriel')->unique();           
+            $table->foreignId('ville_id')->constrained('villes')->onDelete('cascade');
             $table->timestamps();
-            $table->foreign('ville_id')->references('id')->on('villes');
         });
     }
 

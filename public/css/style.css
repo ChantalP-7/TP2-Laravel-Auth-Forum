@@ -79,6 +79,12 @@ body {
         margin-left: 30px; /* Or use margin-right for the left column */
 }
 
+.pagination {
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
 .pagination .page-link {
     background-color: rgba(8, 37, 90, 0.9);
     color: white;
@@ -97,6 +103,45 @@ body {
     background-color: #fff; 
     color: rgba(8, 37, 90, 0.9);
 }
+
+.grille {
+    /*overflow-x:auto;*/
+    margin:0px auto 60px auto;
+    padding: 20px;
+    max-width: 800px;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+th {
+    background-color: rgb(255, 123, 90);
+    font-size: 24px;
+    font-weight: 400;
+    color: white;
+    border: dotted 1px rgb(255, 255, 255);
+    border-radius: 5px !important;
+    gap: 10px;
+    padding: 10px;
+}
+
+td {
+    border: dotted 1px rgb(228, 228, 228);
+    padding: 10px;
+    font-size: 20px;
+}
+
+.td-link {
+    text-align: center !important;
+}
+
+
+
+
+
+
 
 
 

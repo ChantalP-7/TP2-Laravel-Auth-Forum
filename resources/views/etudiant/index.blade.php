@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 @section('title', 'Étudiants')
 @section('content')
- <h3 class="amita-regular text-center mb-5">Liste des étudiants</h3>
+ <h3 class="amita-regular text-center mb-5">@lang('messages.Students_List')</h3>
  <br />
  <div class="row">
     @forelse($etudiants as $etudiant)
@@ -11,8 +11,8 @@
                 <h5 class="card-title fs-4">{{$etudiant->nom}}</h5>
             </div>
             <div class="card-body">               
-                <p class="card-text "><strong>Date de naissance :</strong> {{ $etudiant->dateNaissance  }}</p>
-                <p class="card-text "><strong>Ville :</strong> {{ $etudiant->ville->ville  }}</p>
+                <p class="card-text "><strong>@lang('Birthday') :</strong> {{ $etudiant->dateNaissance  }}</p>
+                <p class="card-text "><strong>@lang('City') :</strong> {{ $etudiant->ville->ville  }}</p>
             </div>
             <div class="card-footer mb-5 border-0 bg-white">
                 <div class="d-flex justify-content-start gap-5 ">                    
@@ -28,7 +28,7 @@
     </div>
     <br>
     @empty
-        <div class="alert alert-danger"> Il n'y a pas d'étudiant !</div>
+        <div class="alert alert-danger">@lang('messages.no_student') !</div>
     @endforelse
  </div>
  {{ $etudiants }}

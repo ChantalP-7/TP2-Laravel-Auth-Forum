@@ -16,17 +16,14 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('email')->unique();
+            $table->string('username')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             //$table->unsignedBigInteger('etudiant_id');
             $table->timestamps();
 
-            $table->foreignId('etudiant_id')
-              ->nullable()
-              ->constrained('etudiants')
-              ->onDelete('cascade'); // supprime le user si l’étudiant est supprimé
+            $table->foreign('etudiant_id')->references('id')->on('etudiants')->onDelete('cascade'); // supprime le user si l’étudiant est supprimé
         });
     }
 

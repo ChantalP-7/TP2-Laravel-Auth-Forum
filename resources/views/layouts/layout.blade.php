@@ -21,10 +21,11 @@
                     <a class="navbar-brand" href="/">
                         <img src="{{ asset('images/Logo-hibou-bg-transparent.png') }}" width="50" height="50" alt="Logo hibou">                    
                     </a>
-                    <h3 class="text-white text-nowrap fs-4">@lang('Les petits savants')</h3>
+                    <h3 class="text-white text-nowrap fs-4">@lang('Titles.Les petits savants')</h3>
                 </div>                                
                 <div class="collapse navbar-collapse  w-100 d-flex justify-content-between px-3 align-items-center" id="navbarSupportedContent">
                 <ul class="navbar-nav gap-3 pl-5 mb-lg-0">
+                    @auth
                     <li class="nav-item d-flex align-items-center">                      
                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="white" class="bi bi-house-heart" viewBox="0 0 16 16">
                       <path d="M8 6.982C9.664 5.309 13.825 8.236 8 12 2.175 8.236 6.336 5.309 8 6.982"/>
@@ -34,39 +35,38 @@
                     
                                        
                     </li>
+                    @endauth
+                    @auth
                     <li class="nav-item d-flex align-items-center">
                         <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" color="#fff"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
-                        <a class="nav-link active text-white fs-4" href="{{ route('user.index') }}">@lang('Utilisateurs')</a>
+                        <a class="nav-link active text-white fs-4" href="{{ route('user.index') }}">@lang('Users')</a>
                     </li>
-                    
+                    @endauth
+                    @auth
                     <li class="nav-item dropdown d-flex align-items-center">
                       <a class="nav-link dropdown-toggle text-white fs-4 " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-backpack pb-1" viewBox="0 0 16 16">
                         <path d="M4.04 7.43a4 4 0 0 1 7.92 0 .5.5 0 1 1-.99.14 3 3 0 0 0-5.94 0 .5.5 0 1 1-.99-.14M4 9.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5zm1 .5v3h6v-3h-1v.5a.5.5 0 0 1-1 0V10z"/>
                         <path d="M6 2.341V2a2 2 0 1 1 4 0v.341c2.33.824 4 3.047 4 5.659v5.5a2.5 2.5 0 0 1-2.5 2.5h-7A2.5 2.5 0 0 1 2 13.5V8a6 6 0 0 1 4-5.659M7 2v.083a6 6 0 0 1 2 0V2a1 1 0 0 0-2 0m1 1a5 5 0 0 0-5 5v5.5A1.5 1.5 0 0 0 4.5 15h7a1.5 1.5 0 0 0 1.5-1.5V8a5 5 0 0 0-5-5"/>
                       </svg>
-                          @lang('Étudiants')
+                          @lang('Students')
                       </a>
+                       @endauth
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item fs-5" href="{{ route('etudiant.create') }}">@lang('Ajoute un étudiant')</a></li>
-                        <li><a class="dropdown-item fs-5" href="{{route('ville.index')}}">@('Liste des villes')</a></li>
+                        @auth
+                        <li><a class="dropdown-item fs-5" href="{{ route('etudiant.create') }}">@lang('Add_Student')</a></li>
+                       
+                        <li><a class="dropdown-item fs-5" href="{{route('ville.index')}}">@lang('Cities_List')</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item fs-5" href="#">@lang('Archives')</a></li>
+                        @endauth
                     </ul>
+                     
                     </li>        
                 </ul>
                 
                 </div>
-                <div class="collapse navbar-collapse" id="navbarsExample03">
-                    <ul class="navbar-nav me-auto mb-2 mb-sm-0">
-                        
-                        @auth
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('user.index')}}">@lang('Users')</a>
-                        </li>
-                        @endauth
-                        
-                    </ul>
+                <div class="collapse navbar-collapse" id="navbarsExample03">                    
                     <ul class="navbar-nav  mb-2 mb-sm-0">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle fs-5 text-white" href="#" data-bs-toggle="dropdown"
@@ -101,7 +101,7 @@
          @auth
             <p>Welcome, {{ Auth::user()->name }}</p>
         @else
-            <p>Please log in to continue.</p>
+            <p class="fs-5">@lang('auth.log')</p>
         @endauth
         @yield('content')
     </div>

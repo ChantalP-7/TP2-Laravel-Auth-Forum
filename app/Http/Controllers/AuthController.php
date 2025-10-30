@@ -5,7 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 
-class AutController extends Controller
+class AuthController extends Controller
 {
      /**
      * Display a listing of the resource.
@@ -37,10 +37,10 @@ class AutController extends Controller
     public function store(Request $request)
     {
          $request->validate([
-        'email' => 'required|email|exists:users',
+        'username' => 'required|email|exists:users',
         'password' => 'required|min:6|max:20'
         ]);
-        $credentials = $request->only('email', 'password');
+        $credentials = $request->only('username', 'password');
         if(!Auth::validate($credentials)):
         return redirect(route('login'))
                     ->withErrors(trans('auth.password')) // J'ai enlevé auth.failed

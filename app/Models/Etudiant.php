@@ -45,7 +45,7 @@ class Etudiant extends Model
         // Crée l'utilisateur lié
         $etudiant->user()->create([
             'name' => $etudiant->nom,   // Nom de l'étudiant pour le user
-            'email' => $etudiant->courriel,     // Utilisation du courriel de l'étudiant
+            'username' => $etudiant->courriel,     // Utilisation du courriel de l'étudiant
             'password' => Hash::make($password)  // Mot de passe crypté
             //'password' => bcrypt('password'),    // Mot de passe par défaut
         ]);

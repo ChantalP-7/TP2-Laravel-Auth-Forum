@@ -59,6 +59,10 @@ body {
     color: white
 }
 
+.redTomato:hover {
+    background-color: rgba(128, 0, 0, 0.959);
+}
+
 .tomato:hover {
     background-color: rgba(8, 37, 90, 0.9);
     color: white;
@@ -73,6 +77,29 @@ body {
     color: rgba(8, 37, 90, 0.9); 
     background-color: #fff !important;          
     border-color: rgba(8, 37, 90, 0.9) !important;
+}
+
+.btn-jade {   
+    max-width:fit-content;
+    background-color: #00A86B; 
+    color: white; 
+    padding: 6px 20px; 
+    border: none; 
+    border-radius: 5px;
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-jade:hover {
+  background-color: #006f4f; 
+}
+
+
+.bg-jade {
+    background-color: #00A86B; 
+    color: white; 
 }
 
 .custom-gap-30px {

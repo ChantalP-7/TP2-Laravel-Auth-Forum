@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 @section('title', 'Villes')
 @section('content')
- <h3 class="amita-regular">Liste des villes</h3>
+ <h3 class="amita-regular">@lang('Cities_List')</h3>
  <br />
  <div class="row">
     @forelse($villes as $ville)
@@ -16,7 +16,7 @@
     </div>
     
     @empty
-        <div class="alert alert-danger"> Il n'y a pas de ville !</div>
+        <div class="alert alert-danger">@lang('messages.no_cities') !</div>
     @endforelse
  </div>
 @endsection('content')

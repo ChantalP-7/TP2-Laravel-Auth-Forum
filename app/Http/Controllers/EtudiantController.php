@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Etudiant;
 use App\Models\Ville;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class EtudiantController extends Controller
 {
@@ -46,19 +47,44 @@ class EtudiantController extends Controller
             'telephone' => 'required|string',
             'dateNaissance' => 'required|date',
             'courriel' => 'required|email|unique:etudiants,courriel',
-            'ville_id' => 'required|exists:villes,id'
+            'ville_id' => 'required|exists:villes,id',
+            'password' => 'required|string|min:6|confirmed', // Validation du mot de passe
         ]);
 
-        $etudiant = Etudiant::create([
+        /*$etudiant = Etudiant::create([
             'nom' => $request->nom,
             'adresse' => $request->adresse,
             'telephone' => $request->telephone,
             'dateNaissance' => $request->dateNaissance,
             'courriel' => $request->courriel,        
             'ville_id' => $request->ville_id
-        ]);
+        ]);*/
 
-        return redirect()->route('etudiant.show', $etudiant->id)->with('success', 'Étudiant enregistré avec succès !');
+        //return redirect()->route('etudiant.show', $etudiant->id)->with('success', 'Étudiant enregistré avec succès !');
+        DB::beginTransaction();
+
+        try {
+            // Appel de la méthode `createWithUser` pour créer l'étudiant et l'utilisateur
+            $etudiant = Etudiant::createWithUser($request->all());
+
+            // Commit de la transaction si tout se passe bien
+            DB::commit();
+
+            // Retourner une réponse réussie
+            return response()->json([
+                'message' => 'Etudiant et utilisateur créés avec succès.',
+                'etudiant' => $etudiant,
+            ], 201);
+        } catch (\Exception $e) {
+            // Annuler la transaction en cas d'erreur
+            DB::rollBack();
+
+            // Retourner une réponse d'erreur
+            return response()->json([
+                'message' => 'Erreur lors de la création de l\'étudiant et de l\'utilisateur.',
+                'error' => $e->getMessage(),
+            ], 500);
+        }
     }
 
     /**

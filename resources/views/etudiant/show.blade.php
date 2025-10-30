@@ -3,18 +3,18 @@
 @section('content')
  
  <div class="row justify-content-center">
-   <h3 class="mt-2 mb-5 text-center amita-regular">Profil étudiant</h3> 
+   <h3 class="mt-2 mb-5 text-center amita-regular">@lang('Student_Profile')</h3> 
     <div class="col-md-6">              
         <div class="card mb-4 border-0">
             <div class="card-header text-white background-title rounded-0 pt-2 mb-4  pb-0">
                 <h5 class="card-title klee-one-regular fs-4">{{ $etudiant->nom }}</h5>
             </div>
             <div class="card-body border-0 ">
-                <p class="card-text fs-5"><strong>Adresse :</strong> {{ $etudiant->adresse  }}</p>
-                <p class="card-text fs-5"><strong>Ville :</strong> {{ $etudiant->ville->ville  }}</p>
-                <p class="card-text fs-5"><strong>Téléphone :</strong> {{ $etudiant->telephone  }}</p>                
-                <p class="card-text fs-5"><strong>Date de naissance :</strong> {{ $etudiant->dateNaissance  }}</p>                
-                <p class="card-text fs-5"><strong>Courriel :</strong> <a class="cursor-pointer"> {{ $etudiant->courriel  }}</a></p>
+                <p class="card-text fs-5"><strong>@lang('Address') :</strong> {{ $etudiant->adresse  }}</p>
+                <p class="card-text fs-5"><strong>@lang('City') :</strong> {{ $etudiant->ville->ville  }}</p>
+                <p class="card-text fs-5"><strong>@lang('Phone') :</strong> {{ $etudiant->telephone  }}</p>                
+                <p class="card-text fs-5"><strong>@lang('Birthday') :</strong> {{ $etudiant->dateNaissance  }}</p>                
+                <p class="card-text fs-5"><strong>@lang('Email') :</strong> <a class="cursor-pointer"> {{ $etudiant->courriel  }}</a></p>
                 
             </div>
             <div class="card-footer bg-white border-0 rounded mt-3 mb-5">
@@ -34,7 +34,7 @@
                 </div>
                 <hr class="mt-2 mb-4" />
                 <a href="{{ route('etudiant.index') }}" class="col-md-3 btn fw-bold text-decoration-underline text-primary p-3 bg-blue text-white">
-                ← Retour à la liste
+                ← @lang('back_page')
             </a>  
             </div> 
                      

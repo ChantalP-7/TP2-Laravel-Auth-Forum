@@ -15,13 +15,13 @@
         <div class="col-md-4">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="card-title">Forgot Password</h5>
+                    <h5 class="card-title">@lang('forgot_password')</h5>
                 </div>
                 <div class="card-body">
                     <form  method="POST">
                         @csrf
                         <div class="mb-3">
-                            <label for="username" class="form-label">Username</label>
+                            <label for="username" class="form-label">@lang('Username')</label>
                                 <input type="text" class="form-control" id="username" name="email"> 
                             </div>
                         <button type="submit" class="btn btn-primary">Forgot Password</button>

@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 @section('title', 'Ajout étudiant')
 @section('content')
-<h3 class="mb-4 text-center"><strong>Ajoute un étudiant</strong></h3>
+<h3 class="mb-4 text-center"><strong>@lang('Add_Student')</strong></h3>
 
 @if(isset($errors) && $errors->any())
     <div class="alert text-danger fw-bold fs-4">
@@ -15,13 +15,13 @@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header background-soft text-white">
-                    <h5 class="card-title fs-4"><strong>Nouvel étudiant</strong></h5>
+                    <h5 class="card-title fs-4"><strong>@lang('New_Student')</strong></h5>
                 </div>
                 <div class="card-body">
                     <form action="{{ route('etudiant.store') }}" method="POST">
                         @csrf
                         <div class="mb-3">
-                            <label for="nom" class="form-label"><strong>Nom</strong></label>
+                            <label for="nom" class="form-label"><strong>@lang('Name')</strong></label>
                             <input type="text" class="form-control" id="nom" name="nom"  value="{{ old('nom') }}">
                         </div>
                          @if ($errors->has('nom'))
@@ -30,7 +30,7 @@
                             </div>
                         @endif
                         <div class="mb-3">
-                            <label for="adresse" class="form-label"><strong>Adresse</strong></label>
+                            <label for="adresse" class="form-label"><strong>@lang('Address')</strong></label>
                             <input type="text" class="form-control" id="adresse" name="adresse"   value="{{ old('adresse') }}">
                         </div>
                         @if ($errors->has('adresse'))
@@ -39,7 +39,7 @@
                             </div>
                         @endif
                         <div class="mb-3">
-                            <label for="telephone" class="form-label"><strong>Téléphone</strong></label>
+                            <label for="telephone" class="form-label"><strong>@lang('Phone')</strong></label>
                             <input type="text" class="form-control" id="telephone" name="telephone"   value="{{ old('telephone') }}">
                         </div>
                         @if ($errors->has('telephone'))
@@ -48,7 +48,7 @@
                             </div>
                         @endif
                         <div class="mb-3">
-                            <label for="dateNaissance" class="form-label"><strong>Date de naissance</strong></label>
+                            <label for="dateNaissance" class="form-label"><strong>@lang('Birthday')</strong></label>
                             <input type="date" class="form-control" id="dateNaissance" name="dateNaissance"   value="{{ old('dateNaissance') }}">
                         </div>
                         @if ($errors->has('dateNaissance'))
@@ -57,7 +57,7 @@
                             </div>
                         @endif
                         <div class="mb-3">
-                            <label for="courriel" class="form-label"><strong>Courriel</strong></label>
+                            <label for="courriel" class="form-label"><strong>@lang('Email')</strong></label>
                             <input type="email" class="form-control" id="courriel" name="courriel"   value="{{ old('courriel') }}">
                         </div>
                         @if ($errors->has('courriel'))
@@ -66,8 +66,12 @@
                             </div>
                         @endif
                         <div class="mb-3">
-                            <label for="password" class="form-label"><strong>Mot de passe</strong></label>
-                            <input type="password" class="form-control" id="password" name="password" value="password">
+                            <label for="password" class="form-label"><strong>@lang('Password')</strong></label>
+                            <input type="password" class="form-control" id="password" name="password" value="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="password_confirmation" class="form-label"><strong>@lang('messages.Confirm_Password')</strong></label>
+                            <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" value="">
                         </div>
                         @if ($errors->has('password'))
                             <div class="text-danger mb-2">
@@ -75,9 +79,9 @@
                             </div>
                         @endif
                         <div class="mb-3">
-                            <label for="ville_id" class="form-select-label mb-2"><strong>Villes</strong></label>
+                            <label for="ville_id" class="form-select-label mb-2"><strong>@lang('Cities')</strong></label>
                             <select name="ville_id" id="ville_id" class="form-select">
-                                <option value="">Selectionne une ville</option>
+                                <option value="">@lang('Select_city')</option>
                                 @foreach($villes as $ville) 
                                 <option value="{{ $ville->id }}" {{ old('ville_id') == $ville->id ? 'selected' : '' }}>{{ $ville->ville }}
                                 </option>
@@ -90,7 +94,7 @@
                             </div>
                         @endif                      
                         <br/>
-                        <button type="submit" class="btn background-soft"><strong>Sauvegarder</strong></button>
+                        <button type="submit" class="btn background-soft"><strong>@lang('Save')</strong></button>
                     </form>
                 </div>
             </div>

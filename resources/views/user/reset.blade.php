@@ -15,21 +15,21 @@
         <div class="col-md-4">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="card-title">Reset Password</h5>
+                    <h5 class="card-title">@lang('messages.Reset_Password')</h5>
                 </div>
                 <div class="card-body">
                     <form  method="POST">
                         @csrf
                         @method('put')
                         <div class="mb-3">
-                            <label for="password" class="form-label">Password</label>
+                            <label for="password" class="form-label">@lang('Password')</label>
                             <input type="password" class="form-control" id="password" name="password">
                         </div>
                         <div class="mb-3">
-                            <label for="password_confirmation" class="form-label">Confirm Password</label>
+                            <label for="password_confirmation" class="form-label">@lang('messages.Confirm_Password')</label>
                             <input type="password" class="form-control" id="password_confirmation" name="password_confirmation">
                         </div>
-                        <button type="submit" class="btn btn-primary">Reset Password</button>
+                        <button type="submit" class="btn btn-primary">@lang('messages.Reset_Password')</button>
                     </form>
                 </div>
             </div>

@@ -1,11 +1,10 @@
-@extends('layouts.app')
-@section('title', @lang('Login'))
+@extends('layouts.layout')
+@section('title', 'Login')
 @section('content')
-    <h1>Login</h1>
-    <div class="row justify-content-center">
+    <div class="row justify-content-center mb-5">
         <div class="col-md-6">
-            <div class="card">
-                <div class="card-header">
+            <div class="card mb-5">
+                <div class="card-header bg-jade">
                     <h5 class="card-title">@lang('Login')</h5>
                     @if(!$errors->isEmpty())
                      <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -17,22 +16,22 @@
                     </div>
                     @endif
                 </div>
-                <div class="card-body">
+                <div class="card-body ">
                     <form method="post" class="mb-2">
                         @csrf
                         <div class="mb-3">
-                            <label for="email" class="form-label">@lang('Courriel')</label>
-                            <input type="email" class="form-control" id="email" name="email" value="{{old('email')}}">
+                            <label for="username" class="form-label">@lang('Email')</label>
+                            <input type="email" class="form-control" id="username" name="username" value="{{old('username')}}">
                         </div>
                         <div class="mb-3">
-                            <label for="password" class="form-label">@lang('Mot de passe')</label>
+                            <label for="password" class="form-label">@lang('Password')</label>
                             <input type="password" class="form-control" id="password" name="password">
                         </div>
                         <div class="d-grid gap-2">
-                            <button type="submit" class="btn btn-primary">@lang('connexion')</button>
+                            <button type="submit" class="btn btn-jade mx-0 text-white fs-5">@lang('Login')</button>
                         </div>
                     </form>
-                    <a href="{{route('user.forgot')}}" >Forgot Password</a>            
+                         
                 </div>
             </div>
         </div>

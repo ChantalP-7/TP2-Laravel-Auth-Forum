@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 @section('title', 'Users')
 @section('content')
-    <h2 class="text-center">Students List</h2>    
+    <h2 class="text-center">@lang('Users_List')</h2>    
     <table>
         <thead>
             <tr>

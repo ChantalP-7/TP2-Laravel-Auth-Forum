@@ -5,7 +5,7 @@
     <title></title>
   </head>
   <body>
-      Hello <strong>{{ $name }}</strong>,
+      @lang('Hello') <strong>{{ $name }}</strong>,
     <p>{!!$body!!}</p>
   </body>
 </html>

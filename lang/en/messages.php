@@ -5,6 +5,7 @@ return [
     'username' => 'email',
     'student_name' => ':nom',
     'no_student' => 'no student',
+    'Welcome' => 'Welcome',
     'view' => 'view',
     "Students_List" => "Students List",
     "Welcome_to_admin" => "Welcome to admin",
@@ -12,6 +13,5 @@ return [
     "back_page" => "Back to Users List",
     "Confirm_Password" => "Confirm Password",
     "no_cities" => "There are no cities",
-    "student_assoc" => "Student associated"
-    
+    "student_assoc" => "Student associated",
 ];

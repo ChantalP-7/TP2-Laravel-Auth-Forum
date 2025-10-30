@@ -99,7 +99,7 @@
         @endif
 
          @auth
-            <p>Welcome, {{ Auth::user()->name }}</p>
+            <p>@lang('messages.Welcome'), {{ Auth::user()->name }}</p>
         @else
             <p class="fs-5">@lang('auth.log')</p>
         @endauth

@@ -6,6 +6,7 @@ use App\Http\Controllers\VilleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\SetLocaleController;
+use App\Http\Controllers\ArticleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,7 +34,7 @@ Route::put('/etudiant/{etudiant}', [EtudiantController::class, 'update'])->name(
 Route::delete('/etudiant/{etudiant}', [EtudiantController::class, 'destroy'])->name('Etudiant.destroy');
 
 
-// Route pour les vues des villes
+// Route pour la vue des villes
 
 Route::get('/villes', [VilleController::class, 'index'])->name('ville.index');
 
@@ -45,12 +46,24 @@ Route::get('/user/{user}', [UserController::class, 'show'])->name('user.show');
 Route::get('/registration', [UserController::class, 'create'])->name('user.create');
 Route::post('/registration', [UserController::class, 'store'])->name('user.store');
 
+
 // Route pour la connexion et l'authentification
 
 Route::get('/login', [AuthController::class, 'create'])->name('login');
 Route::post('/login', [AuthController::class, 'store']);
 Route::get('/logout', [AuthController::class, 'destroy'])->name('logout');
 
+
 // Route pour les langues : langue locale
 
 Route::get('/lang/{locale}', [SetLocaleController::class, 'index'])->name('lang');
+
+
+// Route pour les articles
+
+Route::get('/articles', [UserController::class, 'index'])->name('article.index');
+Route::get('/article/create', [ArticleController::class, 'create'])->name('article.create');
+Route::post('/article', [ArticleController::class, 'store'])->name('article.store');
+Route::get('/article/{article}/{lang?}', [ArticleController::class, 'show'])->name('article.show');
+Route::get('/article/{article}/edit', [ArticleController::class, 'edit'])->name('article.edit');
+Route::put('/article/{article}', [ArticleController::class, 'update'])->name('article.update');

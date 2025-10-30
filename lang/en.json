@@ -7,12 +7,12 @@
     "Login":"Login",
     "Logout":"Logout",
     "Users":"Users",
-    "Posts":"Posts",
-    "Post":"Post",
-    "New Post":"New Post",
-    "Add_Post":"Add Post",
-    "Edit_Post":"Edit Post",
-    "Delete_Post":"Delete Post",
+    "Articles":"Articles",
+    "Article":"Article",
+    "New_Article":"New Article",
+    "Add_Article":"Add Article",
+    "Edit_Article":"Edit Article",
+    "Delete_Article":"Delete Article",
     "Completed":"Completed",
     "Unfinished":"Unfinished",
     "Language":"Language",
@@ -40,5 +40,6 @@
     "Forgot_Password": "Forgot Password",
     "Greetings": "Hello",
     "Save": "Save",
-    "Student_Profile": "Student Profile"
+    "Student_Profile": "Student Profile",
+    "Succes_Store": "Student and user created with success !"
 }

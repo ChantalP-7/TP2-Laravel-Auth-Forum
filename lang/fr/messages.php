@@ -5,6 +5,7 @@ return [
     'username' => 'username',
     'student_name' => ':nom',
     'no_student' => 'aucun étudiant',
+    'Welcome' => 'Bienvenue',
     'view' => 'voir',
     "Welcome_to_admin"=>"Bienvenue dans l'admin",
     "Students_List" => "Liste des étudiants",

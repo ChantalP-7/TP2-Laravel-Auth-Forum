@@ -48,7 +48,7 @@ class EtudiantController extends Controller
             'dateNaissance' => 'required|date',
             'courriel' => 'required|email|unique:etudiants,courriel',
             'ville_id' => 'required|exists:villes,id',
-            'password' => 'required|string|min:6|confirmed', // Validation du mot de passe
+            'password' => 'required|string|min:6|confirmed', 
         ]);
 
         /*$etudiant = Etudiant::create([
@@ -64,7 +64,7 @@ class EtudiantController extends Controller
         DB::beginTransaction();
 
         try {
-            // Appel de la méthode `createWithUser` pour créer l'étudiant et l'utilisateur
+            // Appel de la méthode 'createWithUser' pour créer l'étudiant et l'utilisateur
             $etudiant = Etudiant::createWithUser($request->all());
 
             // Commit de la transaction si tout se passe bien
@@ -72,7 +72,7 @@ class EtudiantController extends Controller
 
             // Retourner une réponse réussie
             return response()->json([
-                'message' => 'Etudiant et utilisateur créés avec succès.',
+                'message' => 'Student and user created with success !',
                 'etudiant' => $etudiant,
             ], 201);
         } catch (\Exception $e) {

@@ -129,6 +129,8 @@ return [
     'uploaded' => 'Le :attribute n\'a pas été téléchargé.',
     'url' => 'Le :attribute doit être une URL valide.',
     'uuid' => 'Le :attribute doit être un UUID valide.',
+    'success_store' => 'Le :attribute et le :attribute créés avec succès !',
+
 
     /*
     |--------------------------------------------------------------------------

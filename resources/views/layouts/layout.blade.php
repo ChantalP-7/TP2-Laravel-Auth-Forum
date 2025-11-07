@@ -42,7 +42,7 @@
                         <a class="nav-link active text-white fs-4" href="{{ route('user.index') }}">@lang('Users')</a>
                     </li>
                     @endauth
-                    @auth
+                    
                     <li class="nav-item dropdown d-flex align-items-center">
                       <a class="nav-link dropdown-toggle text-white fs-4 " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-backpack pb-1" viewBox="0 0 16 16">
@@ -50,21 +50,33 @@
                         <path d="M6 2.341V2a2 2 0 1 1 4 0v.341c2.33.824 4 3.047 4 5.659v5.5a2.5 2.5 0 0 1-2.5 2.5h-7A2.5 2.5 0 0 1 2 13.5V8a6 6 0 0 1 4-5.659M7 2v.083a6 6 0 0 1 2 0V2a1 1 0 0 0-2 0m1 1a5 5 0 0 0-5 5v5.5A1.5 1.5 0 0 0 4.5 15h7a1.5 1.5 0 0 0 1.5-1.5V8a5 5 0 0 0-5-5"/>
                       </svg>
                           @lang('Students')
-                      </a>
-                       @endauth
-                    <ul class="dropdown-menu">
-                        @auth
-                        <li><a class="dropdown-item fs-5" href="{{ route('etudiant.create') }}">@lang('Add_Student')</a></li>
+                      </a>                      
                        
-                        <li><a class="dropdown-item fs-5" href="{{route('ville.index')}}">@lang('Cities_List')</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item fs-5" href="#">@lang('Archives')</a></li>
-                        @endauth
-                    </ul>
-                     
+                        <ul class="dropdown-menu">
+                            
+                            <li><a class="dropdown-item fs-5" href="{{ route('etudiant.create') }}">@lang('Add_Student')</a></li>
+                           
+                            <li><a class="dropdown-item fs-5" href="{{ route('article.create') }}">@lang('Add_Articles')</a></li>
+                            <li><a class="dropdown-item fs-5" href="{{ route('category.create') }}">@lang('Add_Category')</a></li>
+                        
+                            <li><a class="dropdown-item fs-5" href="{{route('ville.index')}}">@lang('Cities_List')</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item fs-5" href="#">@lang('Archives')</a></li>
+                            
+                        </ul> 
+                    </li>
+                    <li class="nav-item dropdown d-flex align-items-center">
+                        <a class="nav-link dropdown-toggle text-white fs-4 " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" color="#fff"><path d="M0 0h24v24H0z" fill="none"></path><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"></path></svg>
+                          @lang('Articles')
+                      </a>    
+                        <ul class="dropdown-menu">                       
+                            <li><a class="dropdown-item fs-5" href="{{ route('article.create') }}">@lang('Add_Articles')</a></li>
+                            <li><a class="dropdown-item fs-5" href="{{ route('category.create') }}">@lang('Add_Category')</a></li>
+                        </ul>
+                    </li>                    
                     </li>        
                 </ul>
-                
                 </div>
                 <div class="collapse navbar-collapse" id="navbarsExample03">                    
                     <ul class="navbar-nav  mb-2 mb-sm-0">

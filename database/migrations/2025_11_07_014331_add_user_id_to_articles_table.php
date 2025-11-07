@@ -13,12 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('articles', function (Blueprint $table) {
-            $table->id();
-            $table->json('title');
-            $table->json('content');            
-            $table->foreignId('category_id')->nullable()->constrained()->onDelete('set null');
-            $table->timestamps();
+        Schema::table('articles', function (Blueprint $table) {
+            $table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade');
         });
     }
 
@@ -29,6 +25,9 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('articles');
+        Schema::table('articles', function (Blueprint $table) {
+            $table->dropForeign(['user_id']);
+            $table->dropColumn('user_id');
+        });
     }
 };

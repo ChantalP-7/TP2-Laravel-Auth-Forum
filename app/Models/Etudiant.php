@@ -32,6 +32,11 @@ class Etudiant extends Model
         return $this->belongsTo(Ville::class);
     }
 
+    // Etudiant peut avoir plusieurs articles
+    public function articles()    {
+        return $this->hasMany(Article::class);
+    }
+
 
     public static function createWithUser(array $data)
     {

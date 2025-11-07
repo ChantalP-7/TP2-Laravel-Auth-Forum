@@ -19,8 +19,7 @@ class UserController extends Controller
     }
 
     // Afficher un utilisateur spécifique
-    public function show($id)
-    {
+    public function show($id) {
         // Récupérer l'utilisateur par son ID
         $user = User::findOrFail($id);
         

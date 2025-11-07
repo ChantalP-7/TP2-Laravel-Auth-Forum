@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\SetLocaleController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,19 @@ Route::post('/etudiant', [EtudiantController::class, 'store'])->name('etudiant.s
 Route::get('/edit/etudiant/{etudiant}', [EtudiantController::class, 'edit'])->name('etudiant.edit');
 Route::put('/etudiant/{etudiant}', [EtudiantController::class, 'update'])->name('etudiant.update');
 Route::delete('/etudiant/{etudiant}', [EtudiantController::class, 'destroy'])->name('Etudiant.destroy');
+
+
+// Middleware d'authentification
+
+    Route::middleware('auth')->group(function(){
+    Route::get('/articles', [ArticleController::class, 'index'])->name('article.index');
+    Route::get('/article/show', [ArticleController::class, 'index'])->name('article.show');
+    Route::get('/create/article', [articleController::class, 'create'])->name('article.create');
+    Route::post('/create/article', [articleController::class, 'store'])->name('article.store');
+    Route::get('/edit/article/{article}', [ArticleController::class, 'edit'])->name('article.edit');
+    Route::put('/edit/article/{article}', [articleController::class, 'update'])->name('article.update');
+    Route::delete('/article/{article}', [articleController::class, 'destroy'])->name('article.destroy');
+});
 
 
 // Route pour la vue des villes
@@ -61,9 +75,9 @@ Route::get('/lang/{locale}', [SetLocaleController::class, 'index'])->name('lang'
 
 // Route pour les articles
 
-Route::get('/articles', [UserController::class, 'index'])->name('article.index');
-Route::get('/article/create', [ArticleController::class, 'create'])->name('article.create');
-Route::post('/article', [ArticleController::class, 'store'])->name('article.store');
-Route::get('/article/{article}/{lang?}', [ArticleController::class, 'show'])->name('article.show');
-Route::get('/article/{article}/edit', [ArticleController::class, 'edit'])->name('article.edit');
-Route::put('/article/{article}', [ArticleController::class, 'update'])->name('article.update');
+
+
+// Route pour les catégories
+
+Route::get('/create/category', [CategoryController::class, 'create'])->name('category.create');
+Route::post('/create/category', [CategoryController::class, 'store'])->name('category.store');

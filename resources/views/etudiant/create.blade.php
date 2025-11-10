@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 @section('title', 'Ajout étudiant')
 @section('content')
-<h3 class="mb-4 text-center"><strong>@lang('Add_Student')</strong></h3>
+<h3 class="mb-4 text-center"><strong>@lang('Registration')</strong></h3>
 
 @if(isset($errors) && $errors->any())
     <div class="alert text-danger fw-bold fs-4">

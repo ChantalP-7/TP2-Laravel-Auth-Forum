@@ -21,6 +21,21 @@ class EtudiantController extends Controller
         return view('etudiant.index', ["etudiants" => $etudiants]);       
 
     }
+
+    public function espaceEtudiant()
+    {
+        // Récupérer l'utilisateur connecté
+        $user = auth()->user();
+
+        // Récupérer le profil étudiant associé à l'utilisateur
+        $etudiant = $user->etudiant;
+
+        // Récupérer tous les articles de l'étudiant via la relation définie
+        $articles = $etudiant->articles; // Récupère tous les articles de l'étudiant
+
+        // Retourner la vue avec les données
+        return view('etudiant.espace', compact('etudiant', 'articles'));
+    }
     
     /**
      * Show the form for creating a new resource.

@@ -22,10 +22,10 @@ class Etudiant extends Model
 
 
     // Relation avec la table users
-    public function user()
+    /*public function user()
     {
         return $this->hasOne(User::class, 'etudiant_id');
-    }
+    }*/
 
     // Relation avec la table villes
     public function ville() {

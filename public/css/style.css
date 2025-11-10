@@ -144,14 +144,14 @@ table {
 }
 
 th {
-    background-color: rgb(255, 123, 90);
+    background-color: #00A86B;
     font-size: 24px;
     font-weight: 400;
     color: white;
     border: dotted 1px rgb(255, 255, 255);
     border-radius: 5px !important;
     gap: 10px;
-    padding: 10px;
+    padding: 5px;
 }
 
 td {
@@ -164,6 +164,13 @@ td {
     text-align: center !important;
 }
 
+.alert {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 9999;
+    width: auto; 
+}
 
 
 

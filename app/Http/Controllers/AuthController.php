@@ -48,7 +48,7 @@ class AuthController extends Controller
         endif;
         $user = Auth::getProvider()->retrieveByCredentials($credentials);
         Auth::login($user);
-        return redirect()->intended(route('user.index'))->withSuccess('Signed in'); // C'était ce que j'avais mis
+        return redirect()->intended(route('user.dashboard'))->withSuccess('Signed in'); // C'était ce que j'avais mis
         //return redirect()->route('user.index')->withSuccess('Signed in'); // Code de Marcos
     }
 

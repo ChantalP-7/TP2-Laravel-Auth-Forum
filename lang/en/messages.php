@@ -5,13 +5,15 @@ return [
     'username' => 'email',
     'student_name' => ':nom',
     'no_student' => 'no student',
+    'Welcome' => 'Welcome',
     'view' => 'view',
     "Students_List" => "Students List",
-    "Welcome_to_admin" => "Welcome to admin",
+    "Articles_List" => "Articles List",
+    "Welcome_to_forum" => "Welcome to forum",
     "details_user" => "Users Details For ",
     "back_page" => "Back to Users List",
     "Confirm_Password" => "Confirm Password",
     "no_cities" => "There are no cities",
-    "student_assoc" => "Student associated"
-    
+    "student_assoc" => "Student associated",
+    "Are you sure to delete the article: " => "Are you sure to delete the article: "
 ];

@@ -6,5 +6,6 @@ return [
     'Username' => 'Username',
     'Student' => 'Student',
     'Actions' => 'Actions',
+    'Title' => 'Title',
     'Les petits savants' => 'The Little Scientists',
 ];

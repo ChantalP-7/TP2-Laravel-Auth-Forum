@@ -7,5 +7,6 @@ return [
     'Student' => 'Étudiant',
     'Actions' => 'Actions',
     'title' => 'Bienvenue',
+    'Title' => 'Titre',
     'Les petits savants' => 'Les petits savants',
 ];
